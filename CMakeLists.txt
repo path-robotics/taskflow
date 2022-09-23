@@ -364,3 +364,17 @@ install(
   DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/${PROJECT_NAME}
 )
 
+# CPack Options for generating installers
+# xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+set(CPACK_GENERATOR DEB)
+set(CPACK_PACKAGE_NAME "${PROJECT_NAME}-dev")
+set(CPACK_DEB_COMPONENT_INSTALL ON)
+set(CPACK_PACKAGE_VENDOR "Path Robotics")
+set(CPACK_PACKAGE_DESCRIPTION_FILE "${CMAKE_CURRENT_SOURCE_DIR}/README.md")
+set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "Path Robotics fork of Taskflow")
+set(CPACK_PACKAGE_CONTACT "developers@path-robotics.com")
+#set(CPACK_RESOURCE_FILE_LIECENSE "")
+set(CPACK_PACKAGE_INSTALL_DIRECTORY "/usr")
+set(CPACK_DEBIAN_PACKAGE_DEPENDS "")
+
+include(CPack)

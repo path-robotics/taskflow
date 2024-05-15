@@ -587,7 +587,7 @@ T* ObjectPool<T, S>::animate(ArgsT&&... args) {
 
   h.mutex.lock();
 
-  // scan the list of superblocks from most full to least
+  // scan the list of superblocks from the most full to the least full
   int f = static_cast<int>(F-1);
   for(; f>=0; f--) {
     if(!_blocklist_is_empty(&h.lists[f])) {
@@ -624,10 +624,6 @@ T* ObjectPool<T, S>::animate(ArgsT&&... args) {
       f = 0;
       //s = static_cast<Block*>(std::malloc(sizeof(Block)));
       s = new Block();
-
-      if(s == nullptr) {
-        throw std::bad_alloc();
-      }
 
       s->heap = &h;
       s->i = 0;

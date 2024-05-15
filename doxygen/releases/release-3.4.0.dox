@@ -19,7 +19,7 @@ To use %Taskflow v3.4.0, you need a compiler that supports C++17:
 @li GNU C++ Compiler at least v8.4 with -std=c++17
 @li Clang C++ Compiler at least v6.0 with -std=c++17
 @li Microsoft Visual Studio at least v19.27 with /std:c++17
-@li AppleClang Xode Version at least v12.0 with -std=c++17
+@li AppleClang Xcode Version at least v12.0 with -std=c++17
 @li Nvidia CUDA Toolkit and Compiler (nvcc) at least v11.1 with -std=c++17
 @li Intel C++ Compiler at least v19.0.1 with -std=c++17
 @li Intel DPC++ Clang Compiler at least v13.0.0 with -std=c++17 and SYCL20
@@ -58,11 +58,6 @@ There is no update on %syclFlow in this release.
 
 + Removed serializer to improve compilation speed
 
-@subsection release-3-4-0_profiler Taskflow Profiler (TFProf)
-
-+ Disabled local TFProf support due to non-portable serialization
-
-
 @section release-3-4-0_bug_fixes Bug Fixes 
 
 + Fixed the compilation error due to non-portable include of `immintrin.h` ([#371](https://github.com/taskflow/taskflow/issues/371))
@@ -84,13 +79,13 @@ There are no deprecated items in this release.
 + Revised @ref ExecuteTaskflow
   + Added @ref ExecuteATaskflowFromAnInternalWorker
 + Revised @ref CUDASTDExecutionPolicy
-+ Revised @ref ParallelPipeline
-  + Added @ref ParallelPipelineLearnMore
++ Revised @ref TaskParallelPipeline
+  + Added @ref TaskParallelPipelineLearnMore
 + Revised @ref Examples
   + Added @ref TextProcessingPipeline
   + Added @ref GraphProcessingPipeline
   + Added @ref TaskflowProcessingPipeline
-+ Added @ref ParallelScalablePipeline
++ Added @ref TaskParallelScalablePipeline
 
 @section release-3-4-0_miscellaneous_items Miscellaneous Items
 

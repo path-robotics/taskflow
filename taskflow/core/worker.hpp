@@ -16,21 +16,57 @@ namespace tf {
 // ----------------------------------------------------------------------------
 
 /**
-@private
+@class Worker
+
+@brief class to create a worker in an executor
+
+The class is primarily used by the executor to perform work-stealing algorithm.
+Users can access a worker object and alter its property
+(e.g., changing the thread affinity in a POSIX-like system)
+using tf::WorkerInterface.
 */
 class Worker {
 
   friend class Executor;
   friend class WorkerView;
 
+  public:
+
+    /**
+    @brief queries the worker id associated with its parent executor
+
+    A worker id is a unsigned integer in the range <tt>[0, N)</tt>,
+    where @c N is the number of workers spawned at the construction
+    time of the executor.
+    */
+    inline size_t id() const { return _id; }
+
+    /**
+    @brief acquires a pointer access to the underlying thread
+    */
+    inline std::thread* thread() const { return _thread; }
+
+    /**
+    @brief queries the size of the queue (i.e., number of enqueued tasks to
+           run) associated with the worker
+    */
+    inline size_t queue_size() const { return _wsq.size(); }
+    
+    /**
+    @brief queries the current capacity of the queue
+    */
+    inline size_t queue_capacity() const { return static_cast<size_t>(_wsq.capacity()); }
+
   private:
 
     size_t _id;
     size_t _vtm;
     Executor* _executor;
+    std::thread* _thread;
     Notifier::Waiter* _waiter;
     std::default_random_engine _rdgen { std::random_device{}() };
     TaskQueue<Node*> _wsq;
+    Node* _cache;
 };
 
 // ----------------------------------------------------------------------------
@@ -61,6 +97,7 @@ class Worker {
 //  return worker;
 //}
 
+
 // ----------------------------------------------------------------------------
 // Class Definition: WorkerView
 // ----------------------------------------------------------------------------
@@ -82,7 +119,7 @@ class WorkerView {
   public:
 
     /**
-    @brief queries the worker id associated with the executor
+    @brief queries the worker id associated with its parent executor
 
     A worker id is a unsigned integer in the range <tt>[0, N)</tt>,
     where @c N is the number of workers spawned at the construction

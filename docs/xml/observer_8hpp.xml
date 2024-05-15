@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.20" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="observer_8hpp" kind="file" language="C++">
     <compoundname>observer.hpp</compoundname>
     <innerclass refid="structtf_1_1Segment" prot="private">tf::Segment</innerclass>
@@ -10,6 +10,9 @@
     <innerclass refid="structtf_1_1ChromeObserver_1_1Segment" prot="private">tf::ChromeObserver::Segment</innerclass>
     <innerclass refid="structtf_1_1ChromeObserver_1_1Timeline" prot="private">tf::ChromeObserver::Timeline</innerclass>
     <innerclass refid="classtf_1_1TFProfObserver" prot="public">tf::TFProfObserver</innerclass>
+    <innerclass refid="structtf_1_1TFProfObserver_1_1TaskSummary" prot="private">tf::TFProfObserver::TaskSummary</innerclass>
+    <innerclass refid="structtf_1_1TFProfObserver_1_1WorkerSummary" prot="private">tf::TFProfObserver::WorkerSummary</innerclass>
+    <innerclass refid="structtf_1_1TFProfObserver_1_1Summary" prot="private">tf::TFProfObserver::Summary</innerclass>
     <innerclass refid="classtf_1_1TFProfManager" prot="private">tf::TFProfManager</innerclass>
     <innernamespace refid="namespacetf">tf</innernamespace>
     <briefdescription>
@@ -17,6 +20,6 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="/Users/twhuang/Code/taskflow/taskflow/core/observer.hpp"/>
+    <location file="/home/thuang295/Code/taskflow/taskflow/core/observer.hpp"/>
   </compounddef>
 </doxygen>
